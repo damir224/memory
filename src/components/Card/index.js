@@ -3,7 +3,7 @@ import './Card.css';
 import react from './react.png';
 
 const Card = React.memo(
-  ({ card, reverseHandler, reverse }) => {
+  ({ card, reverseHandler }) => {
     return (
       <>
         {card.complete

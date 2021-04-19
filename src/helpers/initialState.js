@@ -1,4 +1,3 @@
-/* eslint-disable object-curly-newline */
 export default {
   cards: [
     { id: 1, logo: 1, cardFace: false, complete: false },
