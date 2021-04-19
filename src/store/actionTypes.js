@@ -1,0 +1,9 @@
+const actionTypes = {
+  FLIP_ONE_CARD: 'FLIP_ONE_CARD',
+  FLIP_TWO_CARD: 'FLIP_TWO_CARD',
+  FLIP_THREE_CARD: 'FLIP_THREE_CARD',
+  SWAP_CARDS: 'SWAP_CARDS',
+  CHECK_CARDS: 'CHECK_CARDS',
+};
+
+export default actionTypes;
