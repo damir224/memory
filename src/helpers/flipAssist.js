@@ -48,3 +48,15 @@ export function flipAssistThree(cards, payload) {
   // ]
   return cards;
 }
+export function flipAssistAll(cards) {
+  const newDeck = [
+    ...cards.map(
+      (e) => (
+        e.complete === false
+          ? { ...e, cardFace: false }
+          : e
+      ),
+    ),
+  ];
+  return newDeck
+}

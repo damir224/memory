@@ -1,7 +1,7 @@
 import actionTypes from '../actionTypes';
 import initialState from '../../helpers/initialState';
 import shuffleFunc from '../../helpers/shuffleFunc';
-import { flipAssistOne, flipAssistTwo, flipAssistThree } from '../../helpers/flipAssist';
+import { flipAssistOne, flipAssistTwo, flipAssistThree, flipAssistAll } from '../../helpers/flipAssist';
 import checkAssist from '../../helpers/checkAssist';
 
 const cardsReducers = (state = { cards: [] }, action) => {
@@ -37,6 +37,12 @@ const cardsReducers = (state = { cards: [] }, action) => {
       return {
         ...state,
         cards: newDeck3
+      };
+    case actionTypes.FLIP_ALL_CARD:
+      const newDeck = flipAssistAll(state.cards);
+      return {
+        ...state,
+        cards: newDeck
       };
     case actionTypes.SWAP_CARDS:
       return {

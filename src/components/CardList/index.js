@@ -2,7 +2,7 @@ import React from 'react';
 import './CardList.css';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../Card';
-import { flipOneCardAC, flipTwoCardAC, flipThreeCardAC, checkCardsAC } from '../../store/cards/actions';
+import { flipOneCardAC, flipTwoCardAC, flipThreeCardAC, flipAllCardAC, checkCardsAC } from '../../store/cards/actions';
 
 export default function CardList() {
   const dispatch = useDispatch();
@@ -26,11 +26,20 @@ export default function CardList() {
     }
     if (cardsReversedArr.length === 2) {
       dispatch(flipTwoCardAC(cardsReversedArr[0].id));
-        setCardsReversedArr([]);
+        setTimeout(()=> {
+          console.log(1000);
+          dispatch(flipAllCardAC());
+          setCardsReversedArr([]);
+        }, 1000)
+        return clearTimeout(timer.current);
     }
     if (cardsReversedArr.length === 1) {
         dispatch(flipOneCardAC(cardsReversedArr[0].id));
-        setCardsReversedArr([]);
+        timer.current = setTimeout(() => {
+          console.log(5000);
+          dispatch(flipAllCardAC());
+          setCardsReversedArr([]);
+        }, 5000)
     }
     // if (cardsReversedArr.length === 2) {
     //   setTimeout(()=> {

@@ -12,6 +12,9 @@ export const flipThreeCardAC = (id) => ({
   type: actionTypes.FLIP_THREE_CARD,
   payload: id,
 });
+export const flipAllCardAC = () => ({
+  type: actionTypes.FLIP_ALL_CARD,
+});
 export const swapCardsAC = () => ({
   type: actionTypes.SWAP_CARDS,
 });
