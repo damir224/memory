@@ -3,7 +3,7 @@ import './Card.css';
 import react from './react.png';
 
 const Card = React.memo(
-  ({ card, reverseHandler }) => {
+  ({ card, reverseHandler, reverse }) => {
     return (
       <>
         {card.complete
@@ -29,6 +29,6 @@ const Card = React.memo(
       </>
     );
   },
-  (prevProps, nextProps) => prevProps.card.cardFace === nextProps.card.cardFace,
+  (prevProps, nextProps) => prevProps.card.cardFace === nextProps.card.cardFace && prevProps.card.complete === nextProps.card.complete,
 );
 export default Card;

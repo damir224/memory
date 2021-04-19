@@ -10,22 +10,25 @@ export default function CardList() {
   const [cardListArr, setCardListArr] = React.useState([]);
   const [cardsReversedArr, setCardsReversedArr] = React.useState([]);
   const timer = React.useRef(null);
-
+  console.log('cardsReversedArr',cardsReversedArr);
   React.useEffect(() => {
     setCardListArr(cards);
   }, [cards]);
   const reverseHandler = (e) => {
-    setCardsReversedArr((prev) => [...prev, e]);
+    if(cardsReversedArr[0]?.id !== e.id){
+      setCardsReversedArr((prev) => [...prev, e]);
+    }
+
     // dispatch(flipCardAC(e.id));
   };
   React.useEffect(() => {
-    console.log(cardsReversedArr.length);
-    if (cardsReversedArr.length > 2) {
-      dispatch(flipThreeCardAC(cardsReversedArr[0].id));
-        setCardsReversedArr([]);
-    }
+    // if (cardsReversedArr.length > 2) {
+    //   dispatch(flipThreeCardAC(cardsReversedArr[0].id));
+    //     setCardsReversedArr([]);
+    // }
     if (cardsReversedArr.length === 2) {
-      dispatch(flipTwoCardAC(cardsReversedArr[0].id));
+      dispatch(flipOneCardAC(cardsReversedArr[1].id));
+      console.log(1);
         setTimeout(()=> {
           console.log(1000);
           dispatch(flipAllCardAC());
@@ -35,6 +38,7 @@ export default function CardList() {
     }
     if (cardsReversedArr.length === 1) {
         dispatch(flipOneCardAC(cardsReversedArr[0].id));
+      console.log(1);
         timer.current = setTimeout(() => {
           console.log(5000);
           dispatch(flipAllCardAC());
@@ -71,6 +75,7 @@ export default function CardList() {
               key={e.id}
               card={e}
               reverseHandler={() => reverseHandler(e)}
+              reverse={cardsReversedArr !== 2 ? true : false }
             />
           ))}
         </div>
