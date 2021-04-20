@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = (env = {}) => {
   const { mode = 'development' } = env;
@@ -11,12 +10,6 @@ module.exports = (env = {}) => {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html'), // шаблон
       filename: 'index.html', // название выходного файла
-      // favicon: './public/favicon.ico',
-    }),
-    new Dotenv({
-      path: './.env',
-      safe: false,
-      defaults: true,
     }),
   ];
 
@@ -52,7 +45,7 @@ module.exports = (env = {}) => {
     },
     output: {
       path: path.resolve(__dirname, './dist'),
-      publicPath: '/',
+      publicPath: './',
       filename: '[name].js',
     },
     plugins: getPlugins(),
