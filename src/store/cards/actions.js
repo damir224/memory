@@ -22,3 +22,7 @@ export const checkCardsAC = (prev, next) => ({
   type: actionTypes.CHECK_CARDS,
   payload: { prev, next },
 });
+export const setCountAC = (count) => ({
+  type: actionTypes.SET_COUNT,
+  payload: count,
+});

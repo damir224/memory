@@ -5,6 +5,7 @@ const actionTypes = {
   FLIP_ALL_CARD: 'FLIP_ALL_CARD',
   SWAP_CARDS: 'SWAP_CARDS',
   CHECK_CARDS: 'CHECK_CARDS',
+  SET_COUNT: 'SET_COUNT',
 };
 
 export default actionTypes;
