@@ -11,7 +11,7 @@ module.exports = (env = {}) => {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html'), // шаблон
       filename: 'index.html', // название выходного файла
-      favicon: './public/favicon.ico',
+      // favicon: './public/favicon.ico',
     }),
     new Dotenv({
       path: './.env',
