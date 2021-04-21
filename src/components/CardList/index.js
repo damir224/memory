@@ -7,13 +7,9 @@ import Dashboard from '../Dashboard';
 
 export default function CardList() {
   const dispatch = useDispatch();
-  const { cards } = useSelector(({ cardsReducers }) => cardsReducers);
-  const { id, count, status } = useSelector(
-    ({ cardsReducers }) => cardsReducers.game,
-  );
-  const dashboardArr = useSelector(
-    ({ cardsReducers }) => cardsReducers.dashboard,
-  );
+  const { cards } = useSelector((state) => state);
+  const { id, status } = useSelector((state) => state.game);
+  const dashboardArr = useSelector((state) => state.dashboard);
   const [cardListArr, setCardListArr] = React.useState([]);
   const [cardsReversedArr, setCardsReversedArr] = React.useState([]);
   const timer = React.useRef(null);
@@ -44,11 +40,6 @@ export default function CardList() {
   }, [dispatch, cardsReversedArr]);
   return (
     <div>
-      {status && (
-        <p align='center' style={{ marginTop: '1em' }}>
-          Card List
-        </p>
-      )}
       {status ? (
         <div className='card-group'>
           {cardListArr.map((e) => (
@@ -62,7 +53,7 @@ export default function CardList() {
       ) : id !== 0 ? (
         <Dashboard games={dashboardArr} />
       ) : (
-        <p>Sorry! You need to be logged in to access this page.</p>
+        <p>Please, press "Start" button above!</p>
       )}
     </div>
   );

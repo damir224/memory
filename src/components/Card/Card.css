@@ -8,12 +8,8 @@
   margin: 10px;
   line-height: 100px;
   cursor: pointer;
-  transition: 150ms;
-  transform: perspective 1000px rotateY(var(--rotate-y, 0))
-    translateY(var(--translate-y, 0));
 }
 .card__body:hover {
-  --translate-y: -2px;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
 }
 .card__face--front {
